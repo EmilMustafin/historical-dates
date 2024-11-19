@@ -1,0 +1,14 @@
+.main {
+  min-width: 300px;
+  max-width: 1440px;
+  margin: 0 auto;
+  background: linear-gradient(var(--border-color), var(--border-color)) no-repeat 50% / 1px 100%;
+  border-right: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+
+  @media (width < 426px) {
+    background: none;
+    border-right: none;
+    border-left: none;
+  }
+}

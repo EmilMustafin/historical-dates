@@ -1,0 +1,46 @@
+.control_buttons {
+  display: flex;
+  justify-content: space-between;
+
+  &.prev {
+    transform: rotate(135deg);
+  }
+
+  &.next {
+    transform: rotate(-45deg);
+  }
+}
+
+.navigation__controls {
+  order: 1;
+  margin-top: 137px;
+  margin-left: 80px;
+
+  @media (width < 768px) {
+    order: 2;
+  }
+
+  @media (width <= 425px) {
+    position: absolute;
+    bottom: 13.33px;
+    z-index: 99;
+    margin-left: 20px;
+  }
+}
+
+.navigation__total {
+  padding: 0 0 20px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--main-color);
+}
+
+.navigation {
+  width: 100%;
+  max-width: 120px;
+
+  @media (width < 426px) {
+    max-width: 58.33px;
+  }
+}

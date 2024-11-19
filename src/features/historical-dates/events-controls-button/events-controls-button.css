@@ -1,0 +1,29 @@
+.events {
+  &.control-buttons {
+    display: none;
+    order: 3;
+
+    @media (width < 426px) {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      justify-content: center;
+    }
+  }
+
+  & .button {
+    width: 6px;
+    height: 6px;
+    padding: 0;
+    margin-bottom: 18.67px;
+    cursor: pointer;
+    background-color: var(--main-color);
+    border: none;
+    border-radius: 50%;
+    opacity: 0.4;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Bebas Neue', serif;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../shared/assets/fonts/BebasNeue-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PT Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../shared/assets/fonts/PTSans-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PT Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  src: url('../../shared/assets/fonts/PTSans-Bold.ttf') format('truetype');
+  font-display: swap;
+}

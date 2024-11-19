@@ -1,0 +1,44 @@
+.historic-dates {
+  padding-top: 96px;
+}
+
+.range {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 973px;
+  padding-right: 35px;
+  margin: 0 auto;
+  font-size: 200px;
+  font-weight: 700;
+  line-height: 80%;
+  text-align: center;
+  letter-spacing: -0.02em;
+  cursor: default;
+
+  &.start {
+    padding: 0;
+    margin: 0;
+    color: var(--font-range-start-color);
+  }
+
+  &.end {
+    padding: 0;
+    margin: 0;
+    color: var(--font-range-end-color);
+  }
+
+  @media (width <=1024px) {
+    max-width: 660px;
+    padding-right: 0;
+    font-size: 140px;
+  }
+
+  @media (width < 767px) {
+    max-width: 273px;
+    padding-right: 0;
+    font-size: 56px;
+  }
+}
