@@ -30,3 +30,5 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4
       with:
           folder: build
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force_orphan: true # Удаляет старую историю в ветке gh-pages
