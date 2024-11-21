@@ -1,5 +1,6 @@
 {
   "name": "historic-dates",
+  "homepage": "https://emilmustafin.github.io/historical-dates",
   "private": true,
   "version": "0.0.0",
   "main": "index.js",
