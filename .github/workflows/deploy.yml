@@ -31,11 +31,10 @@ jobs:
 
       # Step 5: Configure Git
       - name: Configure Git
-        run: 
+        run: |
           git config --global user.email "emill.mustafin@yandex.ru"
-          git config --global user.name "EmilMustafin"
+          git config --global user.name "Emil Mustafin"
 
       # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        run: |
-          npm run deploy
+        run: npm run deploy
