@@ -1,4 +1,5 @@
 name: NodeJS with Webpack
+
 on:
   push:
     branches: [ "master" ]
@@ -34,7 +35,12 @@ jobs:
         run: |
           git config --global user.email "emill.mustafin@yandex.ru"
           git config --global user.name "EmilMustafin"
-
+          
       # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        run: npm run deploy
+        run: |
+          # Set up the remote URL with GITHUB_TOKEN
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          npm run deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
