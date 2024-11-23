@@ -6,7 +6,6 @@
   "scripts": {
     "start": "webpack serve --env mode=development port=3100",
     "build": "tsc -b && webpack --env mode=production",
-    "deploy": "gh-pages -d build",
     "analyze": "webpack --env mode=production analyzer",
     "format": "prettier --write .",
     "lint": "npx eslint .  --report-unused-disable-directives --max-warnings 0",
