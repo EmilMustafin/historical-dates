@@ -40,7 +40,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
-        uses: actions/artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           # Upload dist repository
           path: './build'
