@@ -9,26 +9,38 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [20.x]
-
     steps:
-    - uses: actions/checkout@v4
+      # Step 1: Checkout the repository
+      - uses: actions/checkout@v4
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
+      # Step 2: Set up Node.js
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Build
-      run: |
-        npm install
-        npm run build
-    - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-          folder: build
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          force_orphan: true # Удаляет старую историю в ветке gh-pages
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Build the project
+      - name: Build project
+        run: npm run build
+
+      # Step 5: Configure Git
+      - name: Configure Git
+        run: |
+          git config --global user.email "emill.mustafin@yandex.ru"
+          git config --global user.name "EmilMustafin"
+          
+      # Step 6: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        run: |
+          # Set up the remote URL with GITHUB_TOKEN
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          npm run deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
