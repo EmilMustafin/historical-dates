@@ -31,12 +31,11 @@ jobs:
 
       # Step 5: Configure Git
       - name: Configure Git
-        run: |
+        run: 
           git config --global user.email "emill.mustafin@yandex.ru"
           git config --global user.name "EmilMustafin"
 
       # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         run: |
-          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           npm run deploy
