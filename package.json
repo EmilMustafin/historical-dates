@@ -1,12 +1,13 @@
 {
   "name": "historic-dates",
-  "homepage": "https://emilmustafin.github.io/historical-dates",
+  "homepage": "https://EmilMustafin.github.io/historical-dates",
   "private": true,
   "version": "0.0.0",
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --env mode=development port=3100",
     "build": "tsc -b && webpack --env mode=production",
+    "deploy": "gh-pages -d build",
     "analyze": "webpack --env mode=production analyzer",
     "format": "prettier --write .",
     "lint": "npx eslint .  --report-unused-disable-directives --max-warnings 0",
@@ -55,6 +56,7 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "gh-pages": "^6.2.0",
     "globals": "^15.12.0",
     "html-webpack-plugin": "^5.6.3",
     "mini-css-extract-plugin": "^2.9.2",
