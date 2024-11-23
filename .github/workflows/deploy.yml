@@ -33,7 +33,7 @@ jobs:
       - name: Configure Git
         run: |
           git config --global user.email "emill.mustafin@yandex.ru"
-          git config --global user.name "Emil Mustafin"
+          git config --global user.name "EmilMustafin"
 
       # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
