@@ -5,6 +5,11 @@ on:
   pull_request:
     branches: [ "master" ]
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,33 +17,21 @@ jobs:
       matrix:
         node-version: [20.x]
     steps:
-      # Step 1: Checkout the repository
       - uses: actions/checkout@v4
-
-      # Step 2: Set up Node.js
+      
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-
-      # Step 3: Install dependencies
+          
       - name: Install dependencies
         run: npm install
-
-      # Step 4: Build the project
+        
       - name: Build project
         run: npm run build
 
-      # Step 5: Configure Git
-      - name: Configure Git
-        run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-
-      # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        run: |
-          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          npm run deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
