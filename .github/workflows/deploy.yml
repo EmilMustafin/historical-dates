@@ -1,5 +1,4 @@
 name: NodeJS with Webpack
-
 on:
   push:
     branches: [ "master" ]
@@ -9,11 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [20.x]
-
     steps:
       # Step 1: Checkout the repository
       - uses: actions/checkout@v4
@@ -32,8 +29,16 @@ jobs:
       - name: Build project
         run: npm run build
 
-      # Step 5: Deploy to GitHub Pages
+      # Step 5: Configure Git
+      - name: Configure Git
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+
+      # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        run: npm run deploy
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npm run deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
