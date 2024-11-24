@@ -15,7 +15,6 @@ export function buildWebpack(options: BuildOptions): Configuration {
       path: paths.output,
       filename: 'js/[name].[contenthash].js',
       clean: true,
-      publicPath: '/historical-dates/',
     },
     plugins: buildPlugins(options),
     module: {
